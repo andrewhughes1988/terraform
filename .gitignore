@@ -1,0 +1,11 @@
+.terraform/
+.terraformrc
+*.tfstate
+*.tfstate.*backup
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+plan.out
+crash.log
+Thumbs.db
