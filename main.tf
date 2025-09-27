@@ -1,15 +1,20 @@
-provider "docker" {}
-
-resource "docker_image" "nginx" {
-  name = "docker.mirror.hashicorp.services/nginx:latest"
-  keep_locally = false
+terraform {
+  required_providers {
+    azurerm = {
+        source = "hashicorp/azurerm"
+        version = "~> 3.0.2"
+    }
+  }
+  required_version = ">= 1.1.0"
 }
 
-resource "docker_container" "nginx" {
-  image = docker_image.nginx.image_id
-  name = "tutorial"
-  ports {
-    internal = 80
-    external = 8000
+provider "azurerm" {
+  features {
+    
   }
+}
+
+resource "azurerm_resource_group" "rg" {
+    name = "terraform_RG"
+    location = "westus"  
 }
